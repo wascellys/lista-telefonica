@@ -7,5 +7,5 @@ CRUD simples de lista telefônica usando Laravel 6 e Bootstrap 4
 - Rodar o comando "php artisan make:migration" para criar as tabelas do banco
 
 #Executação
-- Usar o comando "php artisan serve" rodar o sistema
+- Usar o comando "php artisan serve" para rodar o sistema
 
