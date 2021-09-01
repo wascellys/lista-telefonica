@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h3>Editar Contato</h3>
+<br><h3>Editar Contato</h3><br>
 
 
 @if ($errors->any())

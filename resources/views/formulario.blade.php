@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h3>Cadastrar Novo Contato</h3>
+<br><h3>Cadastro de Contatos</h3><br>
 
 
 @if ($errors->any())

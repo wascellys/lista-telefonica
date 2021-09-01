@@ -24,7 +24,15 @@ class AgendaController extends Controller
         return view('detalhe', compact('usuario','user'));
     }
 
-    public function update(Request $request, $usuario) {        
+    public function update(Request $request, $usuario) {    
+        
+        
+        $request->validate([
+            'nome'=>'required',
+            'email'=>'required',
+            'telefone' => 'required | max:9'
+        ]); 
+
         $usuario = Usuario::find($usuario);
         $user = User::find($usuario->user); 
         
@@ -36,10 +44,7 @@ class AgendaController extends Controller
         $usuario->nome = $request->input('nome');
         $usuario->sobrenome = $request->input('sobrenome');         
         $usuario->telefone = $request->input('telefone');
-        $usuario->save();
-        
-
-        // dd($request->all());
+        $usuario->save();        
         
         return redirect('/agenda/contatos');
     }
@@ -47,9 +52,11 @@ class AgendaController extends Controller
 
     public function cadastrar(Request $request) {                
         $request->validate([
-            'nome'=>'required',
-            'telefone' => 'required | max:9'
-        ]);        
+            'nome'=>['required'],
+            'email'=>['required'],
+            'telefone' => ['required','max:9']
+        ]); 
+      
         
 
         $user = new User;        

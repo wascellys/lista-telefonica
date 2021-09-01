@@ -2,14 +2,14 @@
 
 
 @section('content')
-
+    <br><h3>Lista de Contatos</h3><br>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Nome</th>
                 <th>Sobrenome</th>
-                <th>Email</th>
+                {{-- <th>Email</th> --}}
                 <th>Telefone</th>
                 <th>Ações</th>
             </tr>
@@ -20,7 +20,7 @@
                 <td>{{$item->id}}</td>
                 <td>{{$item->nome}}</td>
                 <td>{{$item->sobrenome}}</td>
-                <td>{{$item->user}}</td>
+                {{-- <td>{{$item->user}}</td> --}}
                 <td>{{$item->telefone}}</td>
                 <td>
                     <a href="/agenda/formulario/{{$item->id}}/editar"><i class="far fa-edit" style="margin-right: 10px;"></i></a>
