@@ -35,6 +35,32 @@ Route::delete('/deletar/{usuario}', function (Int $usuario) {
     return response('Contato deletado !', 200);
 });
 
+Route::post('/users', function (Request $request) {       
+
+    // dd($request->nome);
+
+    try {                          
+        $user = new User;        
+        $user->name = $request->nome;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->telefone);
+        $user->save();
+        
+        $usuario = new Usuario;
+        $usuario->nome = $request->nome;
+        $usuario->sobrenome = $request->sobrenome;
+        $usuario->user = $user->id;
+        $usuario->telefone = $request->telefone;
+        $usuario->save();
+
+        return response('Contato cadastrado !', 201);
+    }catch (Exception $e){
+        return response('Erro ao cadastrar contato! '.$e, 400);
+    }
+    
+    
+});
+
 // Route::prefix('agenda')->group(function(){
 //     Route::get('/contatos', 'AgendaController@list');
 //     Route::get('/formulario', 'AgendaController@formulario');
